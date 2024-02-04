@@ -1,25 +1,80 @@
-.navbar {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-  }
-  
-  .nav-list {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    justify-content: space-around;
-  }
-  
-  .nav-list li {
-    margin: 0;
-  }
-  
-  .nav-list a {
-    text-decoration: none;
-    color: #fff;
-  }
-  
-  .nav-list a:hover {
-    text-decoration: underline;
-  }
+/* Sidebar Styles */
+.sidebar {
+  width: 0;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #333;
+  overflow-x: hidden;
+  transition: 0.3s;
+  z-index: 1;
+}
+
+.sidebar.open {
+  width: 250px; 
+}
+
+.side-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 5rem;
+}
+
+.side-list li {
+  margin: 0;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.side-list a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  display: block;
+  padding: 10px;
+}
+
+.side-list a:hover {
+  background-color: #555;
+}
+
+/* Main Navbar Styles */
+.main-navbar {
+  margin-left: 250px;
+  transition: 0.3s;
+  padding: 10px 20px;
+}
+
+.nav-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-list li {
+  margin: 0;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+}
+
+.nav-list a:hover {
+  text-decoration: underline;
+}
+
+/* Menu Icon Styles */
+.menu-icon {
+  cursor: pointer;
+  color: black;
+  font-size: 24px;
+  padding: 10px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+}
