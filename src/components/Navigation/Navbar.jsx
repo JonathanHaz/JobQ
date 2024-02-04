@@ -1,13 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-import React, { useContext, useState } from 'react';
-=======
 import React, { useState,useContext } from 'react';
->>>>>>> 8aad1465d3901424feff6d6f780e3fec9b0a0510
-=======
-import React, { useContext, useState } from 'react';
-import React, { useState,useContext } from 'react';
->>>>>>> 6986fadd62764ffda15a2b4d131bef1ed40e8e24
 import { Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa'; // Import the menu icon
 import './Navbar.css';
