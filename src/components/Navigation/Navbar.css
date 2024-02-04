@@ -78,3 +78,24 @@
   left: 10px;
   z-index: 2;
 }
+
+.loginBTN{
+  border: none;
+  width: 7vw;
+  background-color: #08c255;
+}
+
+.loginBTN:hover{
+  background-color: #07aa4b;
+text-decoration: none;
+}
+
+.loginBTN a{
+  text-decoration: none;
+  color: white;
+  
+}
+
+.loginBTN a:hover{
+  text-decoration: none;  
+}

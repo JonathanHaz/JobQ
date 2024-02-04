@@ -17,25 +17,27 @@ export default function Global({ children }) {
     const [userStatus , setUserStatus] = useState()
     const docRef = collection(db, "users");
 
-    const handleSubmit = async ( user) => {
-      const newResume = { idUser: user.uid,  userStatus:userStatus};
+    const handleSubmit = async (user, username) => {
+      const newResume = { idUser: user.uid, userStatus: userStatus, username: username }; 
       const FormDocRef = await addDoc(docRef, newResume);
     };
 
-    const handleSignUp = (e) => {
+    const handleSignUp = (username) => { 
       if (!email || !password) return;
       createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const newUser = userCredential.user;
         console.log(newUser);
-        handleSubmit(newUser)
+        handleSubmit(newUser, username) 
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
       });
-    };    
+    }; 
+
+
     const handleLogin = (e) => {
         e.preventDefault();
         if (!email || !password) return;
@@ -64,15 +66,25 @@ export default function Global({ children }) {
       
       console.log(userStatus);
       useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (userState) => {
+        const unsubscribe = onAuthStateChanged(auth, async (userState) => {
           if (userState) {
-            setUser(userState);
+            // User is signed in, now fetch additional user data (e.g., username)
+            const userDocRef = query(collection(db, "users"), where("idUser", "==", userState.uid));
+            const querySnapshot = await getDocs(userDocRef);
+            let additionalUserData = {};
+            querySnapshot.forEach((doc) => {
+              // Assuming the document contains a field named 'username'
+              additionalUserData = { username: doc.data().username };
+            });
+            setUser({ ...userState, ...additionalUserData }); // Combine auth user data with fetched data
           } else {
+            // User is signed out
             setUser(null);
           }
         });
         return () => unsubscribe();
       }, []);
+      
     
       const shared = {
         handleEmailChange,
@@ -82,7 +94,8 @@ export default function Global({ children }) {
         setUser,
         user,
         handleSignOut,
-        handleUserStatusChange
+        handleUserStatusChange,
+        username: user ? user.username : null,
       };
       return <userContext.Provider value={shared}>{children}</userContext.Provider>
 }

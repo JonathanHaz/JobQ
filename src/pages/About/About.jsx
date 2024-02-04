@@ -22,28 +22,41 @@ export default function About() {
       <div className='team'>
         <h1>Meet the Team</h1>
         <div className='teamCardContainer'>
-    <div class="card">
-        <svg><path d=""></path></svg>
-        <div class="card__content">
-        <p class="card__title">Jonathan Hazan</p>
-        <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+          <div className="card">
+            <svg><path d=""></path></svg>
+            <div className="card__content">
+              <p className="card__title">Jonathan Hazan</p>
+              <p className="card__description">
+                Jonathan is a dedicated team member. He is passionate about mention Jonathan's passion.
+                 In his free time, he enjoys playing video games or watching anime.
+                  Feel free to connect with Jonathan.
+              </p>
+            </div>
+          </div>
+          <div className="card">
+            <svg><path d=""></path></svg>
+            <div className="card__content">
+              <p className="card__title">Sunny Arbiv</p>
+              <p className="card__description">
+                Sunny Arbiv is a valuable member of our team.
+                  Sunny's goal is to become a Full-Stack Developer.
+                  In his free time, Sunny enjoys mention playing video games
+                  Feel free to connect with Sunny.
+              </p>
+            </div>
+          </div>
+          <div className="card">
+            <svg><path d=""></path></svg>
+            <div className="card__content">
+              <p className="card__title">Uriel Benagev</p>
+              <p className="card__description">
+                Uriel Benagev is a valued member of our team.
+                 Uriel is dedicated to mention Uriel's dedication. In his free time,
+                  Uriel enjoys mention Uriel's hobbies. Feel free to connect with Uriel.
+              </p>
+            </div>
+          </div>
         </div>
-    </div>
-    <div class="card">
-        <svg><path d=""></path></svg>
-        <div class="card__content">
-        <p class="card__title">Sunny Arbiv</p>
-        <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-        </div>
-    </div>
-    <div class="card">
-        <svg><path d=""></path></svg>
-        <div class="card__content">
-        <p class="card__title">Uriel Benagev</p>
-        <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-        </div>
-    </div>
- </div>
       </div>
       <footer className="footer">
         <div>© {new Date().getFullYear()} JobQuest. All rights reserved.</div>
