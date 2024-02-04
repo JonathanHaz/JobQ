@@ -1,16 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./favorite.css";
 import { db } from "../../config/firebase";
 import CardJob from "../../components/CardJob/CardJob";
 import HrCard from "../../components/HrCards/HrCard";
-import { collection, query, getDocs } from "firebase/firestore";
+import { collection, query, getDocs, where } from "firebase/firestore";
+import { userContext } from "../../context/Global";
 
 export default function Favorites() {
   const [favorites, setFavorites] = useState([]);
+  const { user } = useContext(userContext);
 
   const getDataFavorites = async () => {
     try {
-      const q = query(collection(db, "favorites"));
+      const q = query(
+        collection(db, "favorites"),
+        where("idUserFavorites", "==", user.uid)
+      );
       const Snapshot = await getDocs(q);
       const dataFromFirestore = Snapshot.docs.map((doc) => ({
         id: doc.id,
@@ -28,14 +33,14 @@ export default function Favorites() {
 
   return (
     <>
-      <h3>Jobs I liked ({favorites.length})</h3>
+      <h3 className="txtHeaderFavo">Jobs I liked ({favorites.length}) :</h3>
 
-      <div className="containerCards">
-        {favorites.map((favo) => {
+      <div className="containerCardsFavo">
+        {favorites.map((favo, i) => {
           if (favo.WorkRequire) {
-            return <HrCard hrJob={favo} />;
+            return <HrCard key={i} hrJob={favo} />;
           } else {
-            return <CardJob job={favo} />;
+            return <CardJob key={i} job={favo} />;
           }
         })}
       </div>
