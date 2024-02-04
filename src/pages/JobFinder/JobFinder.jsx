@@ -1,13 +1,16 @@
 import "./job.css";
 import axios from "axios";
 import CardJob from "../../components/CardJob/CardJob";
-
+import { collection, query, getDocs } from "firebase/firestore";
+import { db } from "../../config/firebase";
 import React from "react";
+import HrCard from "../../components/HrCards/HrCard";
 import { useState, useEffect } from "react";
 
 export default function JobFinder() {
   const [jobs, setJobs] = useState([]);
   const [selected, steSelected] = useState("");
+  const [hrJobs, setHrJobs] = useState([]);
   const [page, setPage] = useState(1);
 
   const fetchJobs = async (category) => {
@@ -34,6 +37,8 @@ export default function JobFinder() {
   const handleSubmit = (e) => {
     e.preventDefault();
     fetchJobs(selected, page);
+    console.log(e);
+    e.target[0].value = "";
   };
   const handleClickMoreFetchJobs = async () => {
     setPage(page + 1);
@@ -44,8 +49,24 @@ export default function JobFinder() {
 
     setJobs([...jobs, ...data.results]);
   };
+
+  const setDataFromHr = async () => {
+    try {
+      const q = query(collection(db, "HrJobs"));
+      const Snapshot = await getDocs(q);
+      const dataFromFirestore = Snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+
+      setHrJobs([...dataFromFirestore]);
+    } catch (error) {
+      console.error("Error fetching data from Firestore:", error);
+    }
+  };
   useEffect(() => {
     fetchFirstTime();
+    setDataFromHr();
   }, []);
 
   const categories = [
@@ -115,23 +136,31 @@ export default function JobFinder() {
   ];
 
   return (
-    <div>
+    <div className="containerAppSearch">
       <h1>Job Finder App</h1>
       <form onSubmit={handleSubmit}>
-        <input
-          list="data"
-          placeholder="Type to search..."
-          onChange={handleChange}
-        />
-        <datalist id="data">
-          {categories.map((category, i) => {
-            return <option key={i}>{category}</option>;
-          })}
-        </datalist>
+        <div class="bottom">
+          <input
+            type="text"
+            placeholder="Type to search..."
+            list="data"
+            onChange={handleChange}
+          />
+          <datalist id="data">
+            {categories.map((category, i) => {
+              return <option key={i}>{category}</option>;
+            })}
+          </datalist>
+        </div>
       </form>
       {jobs.length > 0 ? (
         <>
           <div className="containerCards">
+            {hrJobs
+              ? hrJobs.map((hrJob, i) => {
+                  return <HrCard key={i} hrJob={hrJob} />;
+                })
+              : ""}
             {jobs.map((job, i) => {
               return <CardJob key={i} job={job} />;
             })}
