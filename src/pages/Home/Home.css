@@ -4,6 +4,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: #F8FAE5;
+    overflow-x: hidden;
   }
 
 .home-container {
@@ -17,8 +19,9 @@ body {
   }
   
   .hero-content {
-    background-color: #007BFF;
-    color: #fff;
+    background-color: #43766c99;
+    color: #F8FAE5;
+    width: 100%;
     padding: 40px;
   }
   
@@ -31,22 +34,25 @@ body {
     margin-top: 20px;
   }
   
-  button {
-    background-color: #FFC107;
-    color: #333;
+  .startedBTN {
+    background-color: #76453B;
     padding: 10px 20px;
     font-size: 1.2rem;
     border: none;
     cursor: pointer;
+    margin-top: 10px;
+  }
+
+  .startedBTN a{
+    color: #F8FAE5;
+    text-decoration: none;
   }
   
   .different {
     margin-top: 40px;
+    color: #76453B;
   }
   
-  .different h2 {
-    font-size: 2rem;
-  }
   
   .different ul {
     display: flex;
@@ -63,28 +69,37 @@ body {
   
   .contact-us {
     margin-top: 40px;
-    border: #007BFF solid;
-    width: 60vw;
+    background-color: #43766c99;
+    width: 110%;
     height: 20vh;
+    display: flex;
+    flex-direction: column; 
+    gap: 30px;
   }
   
   .contact-us h2 {
+    margin-top: 20px;
+    color: #F8FAE5;
     font-size: 2rem;
+  }
+  
+  .contact-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 10px; /* Add margin to separate the links from the bottom */
+  }
+
+
+  .contact-links a{
+    text-decoration: none;
+    color: #76453B;
+    font-size: 30px;
   }
   
   .contact-us a {
     text-decoration: none;
-    color: #007BFF;
-    font-size: 1.2rem;
     margin-right: 20px;
-  }
-  
-  .footer {
-    background-color: #333;
-    color: #fff;
-    font-size: 1rem;
-    margin-top: 10px;
-    width: 100%;
   }
 
   .different {
@@ -97,24 +112,53 @@ body {
   
   .different-features {
     display: flex;
-    justify-content: space-around;
     margin-top: 20px;
   }
   
   .feature {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    gap: 20px; /* Increase the gap between elements */
   }
   
   .feature img {
     width: 200px;
-    height: 200px; 
+    height: 200px;
     margin-bottom: 10px;
     object-fit: cover;
     border-radius: 50%;
   }
   
   .feature p {
-    font-size: 1.2rem;
+    color: #76453B;
+    font-size: 18px;
+    margin-top: 20px; /* Add margin-top to separate text from the top */
+    padding-left: 10px; /* Add padding to the left to increase the gap to the sides */
+    padding-right: 10px; 
+    font-weight: 900;
+  }
+
+  .botBTN {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 20px;
+    z-index: 9989;
+    padding: 18px 20px;
+    border: none;
+    border-radius: 50%  ;
+    color: #76453B;
+    background-color: #43766c;
+  }
+  
+  .Bot {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    z-index: 9988;
   }
 
 
