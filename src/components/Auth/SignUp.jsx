@@ -29,17 +29,17 @@ export default function SignUp(props) {
     <div className='signForm'>
     <form onSubmit={PasswordCheck}>
         <input type="text" placeholder='Email' name='Email'  onChange={handleEmailChange}/>
-        <input type="password" name="password" onInput={handlePasswordTwoCheck} onChange={handlePasswordChange} />
-        <input type="password" name="password1" onInput={handlePasswordCheck} />
+        <input type="password" placeholder='Password' name="password" onInput={handlePasswordTwoCheck} onChange={handlePasswordChange} />
+        <input type="password" placeholder='Confirm Password' name="password1" onInput={handlePasswordCheck} />
         <div class="radio-container">
     <input type="radio" id="jobSeeker" name="userType" value="jobSeeker" onChange={handleUserStatusChange} />
-    <label class="radio-label" htmlFor="jobSeeker"><div class="radio-btn"></div> Job Seeker</label>
+    <label class="radio-label" htmlFor="jobSeeker"><div class="radio-btn"></div>Job Seeker</label>
     </div>
     <div class="radio-container">
     <input type="radio" id="HR" name="userType" value="HR" onChange={handleUserStatusChange} />
-    <label class="radio-label" htmlFor="HR"><div class="radio-btn"></div> HR</label>
+    <label class="radio-label" htmlFor="HR"><div class="radio-btn"></div>Recruiter</label>
     </div>
-        <button>Sign-Up</button>
+        <button>Sign Up</button>
     </form>
     <p>Already have an account? <Link to="/auth" onClick={props.toggleForm}>Login</Link></p>
     </div>
