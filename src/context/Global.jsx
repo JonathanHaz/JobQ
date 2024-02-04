@@ -6,7 +6,7 @@ import {
   signOut,
   createUserWithEmailAndPassword,
 } from 'firebase/auth';
-import { addDoc, collection, getDocs, query, where } from 'firebase/firestore';
+import { addDoc, collection, doc, getDoc, getDocs, query, where } from 'firebase/firestore';
 
 export const userContext = createContext(); 
 
@@ -15,6 +15,7 @@ export default function Global({ children }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [userStatus , setUserStatus] = useState()
+    const [userData , setUserData] = useState([])
     const docRef = collection(db, "users");
   
     const handleSubmit = async (user, username) => {
@@ -73,9 +74,9 @@ export default function Global({ children }) {
             const querySnapshot = await getDocs(userDocRef);
             let additionalUserData = {};
             querySnapshot.forEach((doc) => {
-             
               additionalUserData = { username: doc.data().username };
             });
+            fetchData(userState);
             setUser({ ...userState, ...additionalUserData });
           } else {
           
@@ -85,7 +86,33 @@ export default function Global({ children }) {
         return () => unsubscribe();
       }, []);
       
-    
+      const getUserData = async (userState) => {
+        const q = query(collection(db, 'users'), where('idUser', '==', userState.uid));
+        try {
+          const querySnapshot = await getDocs(q);
+          if (querySnapshot.docs.length > 0) {
+            const documentId = querySnapshot.docs[0].id;
+            const documentRef = doc(collection(db, 'users'), documentId);
+            const documentSnapshot = await getDoc(documentRef);
+            if (documentSnapshot.exists()) {
+              const documentData = documentSnapshot.data();
+              console.log("Document data:", documentData);
+              return documentData;
+            } else {
+              console.log("Document does not exist.");
+            }
+          } else {
+            console.log("No matching documents found.");
+          }
+        } catch (error) {
+          console.error("Error getting documents: ", error);
+        }
+      };
+
+      const fetchData = async (userState) => {
+        setUserData(getUserData(userState))
+        console.log(userData);
+      };
       const shared = {
         handleEmailChange,
         handlePasswordChange,
@@ -93,6 +120,7 @@ export default function Global({ children }) {
         handleSignUp,
         setUser,
         user,
+        userData,
         handleSignOut,
         handleUserStatusChange,
         username: user ? user.username : null,
