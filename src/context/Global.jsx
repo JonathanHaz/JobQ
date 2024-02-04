@@ -68,17 +68,16 @@ export default function Global({ children }) {
       useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async (userState) => {
           if (userState) {
-            // User is signed in, now fetch additional user data (e.g., username)
             const userDocRef = query(collection(db, "users"), where("idUser", "==", userState.uid));
             const querySnapshot = await getDocs(userDocRef);
             let additionalUserData = {};
             querySnapshot.forEach((doc) => {
-              // Assuming the document contains a field named 'username'
+             
               additionalUserData = { username: doc.data().username };
             });
-            setUser({ ...userState, ...additionalUserData }); // Combine auth user data with fetched data
+            setUser({ ...userState, ...additionalUserData });
           } else {
-            // User is signed out
+          
             setUser(null);
           }
         });
