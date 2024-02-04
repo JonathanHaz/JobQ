@@ -1,3 +1,8 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Times New Roman', Times, serif;
+}
 
 .sidebar {
   width: 0;
@@ -5,7 +10,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #3333338e;
+  background-color: #43766c99;
   backdrop-filter: blur(8px);
   overflow-x: hidden;
   transition: 0.3s;
@@ -31,28 +36,39 @@
 .side-list a {
   text-decoration: none;
   color: #fff;
-  font-size: 18px;
+  font-size: 22px;
   display: block;
-  padding: 10px;
+  padding: 25px;
 }
 
 .side-list a:hover {
-  background-color: #555;
+  background-color: #B19470;
 }
 
 /* Main Navbar Styles */
+.sticky-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: all .2s;
+  background-color: #f8fae5ac;
+  backdrop-filter: blur(4px);
+  z-index: 100;
+}
+
 .main-navbar {
-  margin-left: 250px;
-  transition: 0.3s;
-  padding: 10px 20px;
+  height: 10vh;
 }
 
 .nav-list {
   list-style-type: none;
   padding: 0;
   display: flex;
-  gap: 10px;
   justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+  
 }
 
 .nav-list li {
@@ -72,7 +88,7 @@
 /* Menu Icon Styles */
 .menu-icon {
   cursor: pointer;
-  color: black;
+  color: #76453B;
   font-size: 24px;
   padding: 10px;
   position: absolute;
@@ -103,26 +119,26 @@ text-decoration: none;
 }
 
 .logoutBTN{
+  margin-right: 10px;
   border: none;
   width: 7vw;
   height: 5vh;
   transition: 1s all;
-  background-color: #08c255;
+  background-color: #76453B;
   font-size: 16px;
   color: #fff;
-}
+  margin-top: 10px;
 
-.logoutBTN:hover{
-  background-color: #07aa4b;
-  text-decoration: none;
 }
-
 
 .welcome{
+  color: #76453B;
   margin-top: 10px;
+
 }
 
 .logo{
-  width: 100px;
+  height: 50px;
   margin-top: 10px;
+
 }
