@@ -61,12 +61,12 @@
     cursor: pointer;
 }
 
-.signForm > p a {
+.signForm >p a {
     color: #007bff;
     text-decoration: none;
     cursor: pointer;
 }
 
-.signForm > p a:hover {
+p a:hover {
     text-decoration: underline;
 }
