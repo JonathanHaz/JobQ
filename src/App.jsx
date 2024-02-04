@@ -1,8 +1,7 @@
 import Home from "./pages/Home/Home";
 import Navbar from "./components/Navigation/Navbar";
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import Auth from "./pages/Auth/Auth";
 
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
@@ -11,7 +10,6 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/auth" element={<Auth />} />
         </Routes>
       </BrowserRouter>
     </>
