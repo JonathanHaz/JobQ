@@ -1,70 +1,116 @@
 import "./job.css";
 import axios from "axios";
+import CardJob from "../../components/CardJob/CardJob";
 
 import React from "react";
 import { useState, useEffect } from "react";
 
 export default function JobFinder() {
   const [jobs, setJobs] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [selected, steSelected] = useState("");
 
-  const fetchJobs = async () => {
-    const apiKey =
-      "7c67576cbca56381bf8a993d5158b6272b670260e955bf0f9b115c1825c80555";
-    const url =
-      "https://www.themuse.com/api/public/jobs?location=israel&page=2 ";
-    const category = "Software Engineer";
-    const location = "Hermitage, PA";
-    const page = 1;
-
-    try {
-      const response = await axios.get(url, {
-        params: {
-          category: category,
-          location: location,
-          page: page,
-          api_key: apiKey,
-        },
-      });
-
-      const data = await response.data;
-
-      console.log(data);
-      setJobs(data);
-      setLoading(false);
-    } catch (error) {
-      console.error("Error fetching jobs:", error);
-      setLoading(false);
-    }
-  };
-  const fetch = async () => {
+  const fetchJobs = async (category) => {
     const res = await axios.get(
-      "https://www.themuse.com/api/public/jobs?location=israel&page=2"
+      `https://www.themuse.com/api/public/jobs?category=${category}&page=1`
     );
     const data = await res.data;
-    setJobs(data);
+    console.log(data);
+    setJobs(data.results);
+  };
+  const handleChange = (e) => {
+    steSelected(e.target.value);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetchJobs(selected);
   };
 
-  useEffect(() => {
-    fetchJobs();
-    fetch();
-  }, []);
-  console.log(jobs);
+  const categories = [
+    "User",
+    "Accounting",
+    "Accounting and Finance",
+    "Account Management",
+    "Account Management/Customer Success",
+    "Administration and Office",
+    "Advertising and Marketing",
+    "Animal Care",
+    "Arts",
+    "Business Operations",
+    "Cleaning and Facilities",
+    "Computer and IT",
+    "Construction",
+    "Corporate",
+    "Customer Service",
+    "Data and Analytics",
+    "Data Science",
+    "Design",
+    "Design and UX",
+    "Editor",
+    "Education",
+    "Energy Generation and Mining",
+    "Entertainment and Travel Services",
+    "Farming and Outdoors",
+    "Food and Hospitality Services",
+    "Healthcare",
+    "HR",
+    "Human Resources and Recruitment",
+    "Installation, Maintenance, and Repairs",
+    "IT",
+    "Law",
+    "Legal Services",
+    "Management",
+    "Manufacturing and Warehouse",
+    "Marketing",
+    "Mechanic",
+    "Media, PR, and Communications",
+    "Mental Health",
+    "Nurses",
+    "Office Administration",
+    "Personal Care and Services",
+    "Physical Assistant",
+    "Product",
+    "Product Management",
+    "Project Management",
+    "Protective Services",
+    "Public Relations",
+    "Real Estate",
+    "Recruiting",
+    "Retail",
+    "Sales",
+    "Science",
+    "setEngineering",
+    "Social Services",
+    "Software Engineer",
+    "Software Engineering",
+    "Sports, Fitness, and Recreation",
+    "Transportation and Logistics",
+    "Unknown",
+    "UX",
+    "Videography",
+    "Writer",
+    "Writing and Editing",
+  ];
+
   return (
     <div>
       <h1>Job Finder App</h1>
-      {/* {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <ul>
-          {jobs.map((job) => (
-            <li key={job.id}>
-              <h2>{job.name}</h2>
-              <p>{job.company}</p>
-            </li>
-          ))}
-        </ul>
-      )} */}
+      <form onSubmit={handleSubmit}>
+        <input
+          list="data"
+          placeholder="Type to search..."
+          onChange={handleChange}
+        />
+        <datalist id="data">
+          {categories.map((category, i) => {
+            return <option key={i}>{category}</option>;
+          })}
+        </datalist>
+      </form>
+      <div>
+        {jobs.map((job, i) => {
+          return <CardJob key={i} job={job} />;
+        })}
+      </div>
     </div>
   );
 }

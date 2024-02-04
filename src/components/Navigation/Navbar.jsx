@@ -1,4 +1,4 @@
-import React, { useState,useContext } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa'; // Import the menu icon
 import './Navbar.css';
@@ -14,6 +14,7 @@ const Navbar = () => {
   };
 
   return (
+
     <div>
       {/* Sidebar toggle icon */}
       <FaBars className="menu-icon" onClick={toggleSidebar} />
