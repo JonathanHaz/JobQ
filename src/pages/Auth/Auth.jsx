@@ -4,23 +4,21 @@ import SignUp from '../../components/Auth/SignUp'
 import { userContext } from '../../context/Global'
 
 export default function Auth() {
-  const {handleSignOut} = useContext(userContext)
+  const { handleSignOut } = useContext(userContext)
   const [signButton, setSignButton] = useState(false);
-  const toggleForm = ()=>{
+  const toggleForm = () => {
     setSignButton(!signButton)
   }
+
   return (
     <div>
-      {signButton? 
-      <Login toggleForm={toggleForm}/>
-      :
-      <SignUp toggleForm={toggleForm}/>
+      {signButton ?
+        <Login toggleForm={toggleForm} />
+        :
+        <SignUp toggleForm={toggleForm} />
       }
-      
-      
-      <div>
-        <button onClick={handleSignOut} className='Sign-button'>SignOut</button>
-     </div>
+
+     
     </div>
   )
 }
