@@ -6,7 +6,7 @@ import {
   signOut,
   createUserWithEmailAndPassword,
 } from 'firebase/auth';
-import { collection, getDocs, query, where } from 'firebase/firestore';
+import { addDoc, collection, getDocs, query, where } from 'firebase/firestore';
 
 export const userContext = createContext(); 
 
@@ -14,21 +14,28 @@ export default function Global({ children }) {
     const [user , setUser] = useState();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [userStatus , setUserStatus] = useState()
+    const docRef = collection(db, "users");
+
+    const handleSubmit = async ( user) => {
+      const newResume = { idUser: user.uid,  userStatus:userStatus};
+      const FormDocRef = await addDoc(docRef, newResume);
+    };
 
     const handleSignUp = (e) => {
-        if (!email || !password) return;
-        createUserWithEmailAndPassword(auth, email, password)
-          .then((userCredential) => {
-            const newUser = userCredential.user;
-            console.log(newUser);
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorCode, errorMessage);
-          });
-      };
-
+      if (!email || !password) return;
+      createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const newUser = userCredential.user;
+        console.log(newUser);
+        handleSubmit(newUser)
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
+    };    
     const handleLogin = (e) => {
         e.preventDefault();
         if (!email || !password) return;
@@ -53,7 +60,9 @@ export default function Global({ children }) {
     
       const handleEmailChange = (event) => setEmail(event.target.value);
       const handlePasswordChange = (event) => setPassword(event.target.value);
-
+      const handleUserStatusChange = (event) => setUserStatus(event.target.value);
+      
+      console.log(userStatus);
       useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (userState) => {
           if (userState) {
@@ -73,6 +82,7 @@ export default function Global({ children }) {
         setUser,
         user,
         handleSignOut,
+        handleUserStatusChange
       };
       return <userContext.Provider value={shared}>{children}</userContext.Provider>
 }

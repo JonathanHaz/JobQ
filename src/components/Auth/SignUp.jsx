@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import { userContext } from '../../context/Global'
 
 export default function SignUp() {
-    const { handleEmailChange, handlePasswordChange, handleSignUp } = useContext(userContext);
+    const { handleEmailChange, handlePasswordChange, handleSignUp , handleUserStatusChange} = useContext(userContext);
     const [passwordOne, setPasswordOne] = useState('');
     const [passwordTwo, setPasswordTwo] = useState('');
   
@@ -29,10 +29,10 @@ export default function SignUp() {
         <input type="text" placeholder='Email' name='Email'  onChange={handleEmailChange}/>
         <input type="password" name="password" onInput={handlePasswordTwoCheck} onChange={handlePasswordChange} />
         <input type="password" name="password1" onInput={handlePasswordCheck} />
-        <input type="radio" id="jobSeeker" name="userType" value="jobSeeker"/>
-         <label for="jobSeeker">job seeker</label>
-         <input type="radio" id="HR" name="userType" value="HR"/>
-        <label for="HR">HR</label>
+        <input type="radio" id="jobSeeker" name="userType" value="jobSeeker" onChange={handleUserStatusChange}/>
+         <label htmlFor="jobSeeker">job seeker</label>
+         <input type="radio" id="HR" name="userType" value="HR" onChange={handleUserStatusChange}/>
+        <label htmlFor="HR">HR</label>
         <button>Sign-Up</button>
     </form>
   )
