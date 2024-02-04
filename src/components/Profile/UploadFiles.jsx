@@ -30,15 +30,22 @@ export default function UploadFiles() {
   };
   console.log(user);
   const uploadToUser = async (data) => {
-    try {
-        const docRef = doc(db, 'users', user.uid);
-        console.log(docRef);
-      const q = query(collection(db, 'resume'), where('idUser', '==', user.uid));
-      await updateDoc(q, { PDF: data });
-      console.log("Document successfully updated!");
-    } catch (error) {
-      console.error("Error updating document: ", error);
-    }
+    const q = query(collection(db, 'resume'), where('idUser', '==', user.uid));
+      const querySnapshot = await getDocs(q);
+      const dataFromFirestore = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      console.log(dataFromFirestore);
+    // try {
+    //     const docRef = doc(db, 'users', user.uid);
+    //     console.log(docRef);
+    //   const q = query(collection(db, 'resume'), where('idUser', '==', user.uid));
+    //   await updateDoc(q, { PDF: data });
+    //   console.log("Document successfully updated!");
+    // } catch (error) {
+    //   console.error("Error updating document: ", error);
+    // }
   };
   return (
     <div>
