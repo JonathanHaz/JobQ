@@ -7,6 +7,7 @@ import { useContext } from "react";
 import { userContext } from "./context/Global";
 import Profile from "./pages/Profile/Profile";
 import About from "./pages/About/About";
+import HR from "./pages/HR/HR";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path="/search" element={<JobFinder />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/about" element={<About />} />
+          <Route path="/hr" element={<HR />} />
           </>
           }
         </Routes>
