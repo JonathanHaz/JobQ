@@ -1,9 +1,8 @@
 import Home from "./pages/Home/Home";
 
 import Navbar from "./components/Navigation/Navbar";
-
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
-
+import JobFinder from "./pages/JobFinder/JobFinder";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
@@ -12,6 +11,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/search" element={<JobFinder />} />
         </Routes>
       </BrowserRouter>
     </>
