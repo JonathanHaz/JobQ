@@ -10,9 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@twicpics/components": "^0.27.1",
     "axios": "^1.6.7",
     "dom": "^0.0.3",
     "firebase": "^10.8.0",
+    "html-react-parser": "^5.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
