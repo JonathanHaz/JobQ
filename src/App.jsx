@@ -29,7 +29,6 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/about" element={<About />} />
           {isHr?<Route path="/hr" element={<HR />} />:null }
-          <Route path="/hr" element={<HR />} />
            <Route path="/thankYou" element={<ThankYou />} />
           </>
           }

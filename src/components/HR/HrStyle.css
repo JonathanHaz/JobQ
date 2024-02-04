@@ -1,0 +1,59 @@
+#ResumeForm {
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #B19470;
+    opacity: 80%;
+    border-radius: 10px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+
+  }
+  
+    #Company,
+    #PhoneNumber,
+    #Email,
+    #dateCompany,
+    #requires {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    color: #000;
+  }
+  
+  #about {
+    width: 90%;
+    height: 50%;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #000;
+  }
+  
+  #level {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    color: #000;
+  }
+  
+  .hrButton {
+    background-color: #76453B;
+    color: #fff;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .hrButton:hover {
+    background-color: #483430;
+  }
