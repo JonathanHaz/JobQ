@@ -16,6 +16,7 @@
   height: 70vh;
   display: flex;
   justify-content: center;
+  font-family: "Josefin Sans", sans-serif;
   align-items: center;
 }
 .phoneNumber {
@@ -43,6 +44,7 @@
   font-weight: bold;
   font-size: 1.5rem;
   width: 100%;
+
   margin-left: 1rem;
 }
 .exit:hover {
@@ -50,5 +52,11 @@
   cursor: pointer;
 }
 .cardThankYou a {
-  background-color: #1d2d5a;
+  width: 100%;
+
+  display: flex;
+  align-items: end;
+}
+.cardThankYou {
+  display: flex;
 }

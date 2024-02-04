@@ -24,13 +24,6 @@ export default function CardJob({ job }) {
       <div className="bluePas"></div>
       <h3 className="containNameAndHeart">
         {job.categories[0]?.name} <Heart className="clickHeart" job={job} />
-        {job.categories[0]?.name}{" "}
-        <GoHeartFill
-          onClick={() => {
-            hanleHeartClick(job);
-          }}
-          className="clickHeart"
-        />
       </h3>
       <p>
         <span>{job.locations[0]?.name}</span>
