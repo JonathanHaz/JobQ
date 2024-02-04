@@ -16,8 +16,16 @@ export default function Global({ children }) {
     const [password, setPassword] = useState('');
     const [userStatus , setUserStatus] = useState()
     const [userData , setUserData] = useState([])
+    const [isHr, setIsHr] = useState(false)
     const docRef = collection(db, "users");
   
+    const HrChecker = () =>{
+      if(userStatus == "HR"){
+        setIsHr(true)
+      }else{setIsHr(false)}
+      
+    }
+
     const handleSubmit = async (user, username) => {
       const newResume = { idUser: user.uid, userStatus: userStatus, username: username }; 
       const FormDocRef = await addDoc(docRef, newResume);
@@ -78,6 +86,7 @@ export default function Global({ children }) {
             });
             fetchData(userState);
             setUser({ ...userState, ...additionalUserData });
+            HrChecker()
           } else {
           
             setUser(null);
@@ -120,6 +129,7 @@ export default function Global({ children }) {
         handleLogin,
         handleSignUp,
         setUser,
+        HrChecker,
         user,
         userData,
         handleSignOut,

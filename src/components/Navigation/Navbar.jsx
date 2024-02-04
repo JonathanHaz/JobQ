@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import "./Navbar.css";
 import { userContext } from "../../context/Global";
+import Logo from '../../assets/Images/Logo.png'
 
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -16,7 +17,6 @@ const Navbar = () => {
   return (
     <div>
       <FaBars className="menu-icon" onClick={toggleSidebar} />
-
 
      
 
@@ -45,6 +45,7 @@ const Navbar = () => {
       {/* Main Navbar */}
       <nav className="main-navbar">
         <ul className="nav-list">
+          <img className="logo" src={Logo} alt="" />
           {user ? (
             <><h3>Welcome back, {username}</h3>
             <button onClick={handleSignOut} className="logoutBTN">Log Out</button>
