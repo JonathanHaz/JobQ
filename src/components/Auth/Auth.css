@@ -1,5 +1,6 @@
 .signForm{
     max-width: 400px;
+    min-height: 400px;
     margin: 50px auto;
     padding: 20px;
     border: 1px solid #ccc;
@@ -59,6 +60,11 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+}
+
+button a{
+    text-decoration: none;
+    color: white;
 }
 
 p a {
