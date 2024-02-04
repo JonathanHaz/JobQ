@@ -27,11 +27,18 @@ export default function Favorites() {
   }, []);
 
   return (
-    <div>
+    <>
       <h3>Jobs I liked ({favorites.length})</h3>
-      {/* {favorites.map((favo)=>{
 
-      })} */}
-    </div>
+      <div className="containerCards">
+        {favorites.map((favo) => {
+          if (favo.WorkRequire) {
+            return <HrCard hrJob={favo} />;
+          } else {
+            return <CardJob job={favo} />;
+          }
+        })}
+      </div>
+    </>
   );
 }

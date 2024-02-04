@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import parse from "html-react-parser";
 import { TbSend } from "react-icons/tb";
-import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
+import { CiCirclePlus, CiCircleMinus, } from "react-icons/ci";
 import Heart from "../Heart";
 import { Link } from "react-router-dom";
 

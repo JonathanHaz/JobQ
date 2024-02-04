@@ -3,7 +3,7 @@ import { userContext } from '../../context/Global';
 import { addDoc, collection } from '@firebase/firestore';
 import { db } from '../../config/firebase';
 import WorkRequire from './WorkRequire';
-
+import "./HrStyle.css"
 export default function HrCard() {
   const { user } = useContext(userContext);
   const [formData, setFormData] = useState({});
@@ -70,14 +70,19 @@ export default function HrCard() {
       <form id='ResumeForm' onSubmit={handleSubmit}>
         {currentPage === 1 ? (
           <>
-            <input placeholder="Company Name" name="CompanyName" onChange={changeContactInfoHandler} />
-            <input placeholder="About" name="about" onChange={changeContactInfoHandler} />
-            <input type="number" placeholder="Company number" name="phoneNumber" onChange={changeContactInfoHandler} />
-            <input type="email" placeholder="Company@gmail.com" name="email" onChange={changeContactInfoHandler} />
-            <input placeholder="level" name={`level`} onChange={changeContactInfoHandler} />
-            <p>publish date: </p>
-             <input type="date" name={`PublishDate`} onChange={changeContactInfoHandler} /> 
-            <button type='button' onClick={nextStage}>Next</button>
+            <input className="form-group" id="Company" placeholder="Company Name" name="CompanyName" onChange={changeContactInfoHandler} />
+            <input className="form-group" id="about" placeholder="About" name="about" onChange={changeContactInfoHandler} />           
+            <select className="form-group" id="level" name="level" onChange={changeContactInfoHandler}>
+              <option value="">Select Level</option>
+              <option value="Mid">Mid</option>
+              <option value="Senior">Senior</option>
+              <option value="Junior">Junior</option>
+            </select>         
+            <input className="form-group" id="PhoneNumber" type="number" placeholder="Company number" name="phoneNumber" onChange={changeContactInfoHandler} />
+            <input className="form-group" id="Email" type="email" placeholder="Company@gmail.com" name="email" onChange={changeContactInfoHandler} />
+            <p className="form-group">publish date: </p>
+            <input className="form-group" id="dateCompany" type="date" name="PublishDate" onChange={changeContactInfoHandler} />
+            <button className="hrButton" type='button' onClick={nextStage}>Next</button>
           </>
         ) : currentPage === 2 ? (
           <>
@@ -86,14 +91,14 @@ export default function HrCard() {
                 {workComponent}
               </div>
             ))}
-            <button type='button' onClick={createMoreWorkExp}>Add one more</button>
-            <button type='button' onClick={nextStage}>Next</button>
-            <button type='button' onClick={prevStage}>Back</button>
+            <button className="hrButton" type='button' onClick={createMoreWorkExp}>Add one more</button>
+            <button className="hrButton" type='button' onClick={nextStage}>Next</button>
+            <button className="hrButton" type='button' onClick={prevStage}>Back</button>
           </>
         ) : currentPage === 3 ? (
           <>
-            <button type="submit">Submit</button>
-            <button type='button' onClick={prevStage}>Back</button>
+            <button className="hrButton" type="submit">Submit</button>
+            <button className="hrButton" type='button' onClick={prevStage}>Back</button>
           </>
         ) : null}
       </form>
