@@ -6,6 +6,7 @@ import ai from '../../assets/Images/Ai.jpg'
 import expert from '../../assets/Images/Experts.jpg'
 import growth from '../../assets/Images/Growth.jpg'
 import { Link } from 'react-router-dom';
+import ChatBot from 'react-simple-chatbot';
 
 export default function Home() {
   const { user } = useContext(userContext)
@@ -41,6 +42,59 @@ export default function Home() {
         <a href="">LinkedIn</a>
         <a href="">Facebook</a>
       </div>
+      <ChatBot
+
+  steps={[
+    {
+      id: "1",
+      message: "What is your name?",
+      trigger: "2",
+    },
+    {
+      id: "2",
+      user: true,
+      trigger: "3",
+    },
+    {
+      id: "3",
+      message: "Hi {previousValue}, nice to meet you! What kind of job are you looking for?",
+      trigger: "4",
+    },
+    {
+      id: "4",
+      user: true,
+      trigger: "5",
+    },
+    {
+      id: "5",
+      message: "Great choice! What is your level of experience?",
+      trigger: "6",
+    },
+    {
+      id: "6",
+      options: [
+        { value: "entry", label: "Entry level", trigger: "7" },
+        { value: "mid", label: "Mid-level", trigger: "7" },
+        { value: "senior", label: "Senior level", trigger: "7" },
+      ],
+    },
+    {
+      id: "7",
+      message: "Fantastic! What location are you targeting?",
+      trigger: "8",
+    },
+    {
+      id: "8",
+      user: true,
+      trigger: "9",
+    },
+    {
+      id: "9",
+      message: "Excellent choice! We will help you find job opportunities in {previousValue}. Please wait a moment.",
+      end: true,
+    },
+  ]}
+/>
       <footer className="footer">
         <div>© {new Date().getFullYear()} JobQuest. All rights reserved.</div>
       </footer>
