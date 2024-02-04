@@ -65,3 +65,14 @@
   color: red;
   cursor: pointer;
 }
+.containerButton a {
+  text-decoration: none;
+  color: #1d2d5a;
+  font-weight: bold;
+  border: solid 1px #1d2d5a;
+  padding: 0.5rem;
+}
+.containerButton a:hover {
+  background-color: #1d2d5a;
+  color: aliceblue;
+}

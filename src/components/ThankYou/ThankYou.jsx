@@ -2,6 +2,8 @@ import React from "react";
 import "./thank.css";
 import img from "../../assets/Images/thank-you.gif";
 import { Link } from "react-router-dom";
+import { IoMdClose } from "react-icons/io";
+
 import { FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa";
 
 export default function ThankYou() {
@@ -9,7 +11,9 @@ export default function ThankYou() {
     <div className="containerThanks">
       <div className="cardThankYou">
         <Link to={"/search"}>
-          <div className="exit">X</div>
+          <div className="exit">
+            <IoMdClose />
+          </div>
         </Link>
 
         <img className="picThank" src={img} />
