@@ -25,7 +25,7 @@ const Navbar = () => {
           <li><Link to="/favorites">Favorites</Link></li>
           <li><Link to="/search">Search</Link></li>
           <li><Link to="/hr">HR</Link></li>
-          <li><Link to="/all-profiles">All Profiles</Link></li> 
+          <li><Link to="/profil">Profil</Link></li> 
           </>
           :
           <>
