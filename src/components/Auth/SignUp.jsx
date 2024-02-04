@@ -41,7 +41,7 @@ export default function SignUp(props) {
     </div>
         <button>Sign Up</button>
     </form>
-    <p>Already have an account? <Link to="/auth" onClick={props.toggleForm}>Login</Link></p>
+    <p>Already have an account? <Link to="/" onClick={props.toggleForm}>Login</Link></p>
     </div>
   )
 }
