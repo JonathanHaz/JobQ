@@ -16,7 +16,7 @@ export default function Global({ children }) {
     const [password, setPassword] = useState('');
     const [userStatus , setUserStatus] = useState()
     const docRef = collection(db, "users");
-
+  
     const handleSubmit = async (user, username) => {
       const newResume = { idUser: user.uid, userStatus: userStatus, username: username }; 
       const FormDocRef = await addDoc(docRef, newResume);
