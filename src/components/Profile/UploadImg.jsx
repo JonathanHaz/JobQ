@@ -4,22 +4,21 @@ import React, { useContext, useState } from "react";
 import { userContext } from "../../context/Global";
 import { db } from "../../config/firebase";
 
-export default function UploadFiles() {
+export default function UploadImg() {
   const { user } = useContext(userContext);
   const Present_Key = "usersPdfs";
   const Cloud_name = "dzdsii4hw";
-  const [filePDF, setFilePDF] = useState();
-  const [form, setForm] = useState({});
+  const [fileImg, setfileImg] = useState();
 
   const handleFileChange = (e) => {
-    setFilePDF(e.target.files[0]);
+    setfileImg(e.target.files[0]);
   };
 
   const handleFile = (e) => {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append("file", filePDF);
+    formData.append("file", fileImg);
     formData.append("upload_preset", Present_Key);
 
     axios
@@ -36,8 +35,6 @@ export default function UploadFiles() {
       });
   };
 
-  console.log(user);
-
   const uploadToUser = async (data) => {
     const q = query(collection(db, 'users'), where('idUser', '==', user.uid));
     try {
@@ -45,7 +42,7 @@ export default function UploadFiles() {
       if (querySnapshot.docs.length > 0) {
         const documentId = querySnapshot.docs[0].id;
         const documentRef = doc(collection(db, 'users'), documentId);
-        await updateDoc(documentRef, { PDF: data });
+        await updateDoc(documentRef, { ProfileImg: data });
       } else {
         console.log("No matching documents found.");
       }
@@ -56,10 +53,10 @@ export default function UploadFiles() {
 
   return (
     <div>
-      <form action="" onSubmit={handleFile} encType="multipart/form-data">
-        <label htmlFor="PDF">Put The PDF file</label>
-        <input type="file" id="PDF" name="PDF" onChange={handleFileChange} />
-        <button type="submit">send</button>
+      <form action="" onSubmit={handleFile}>
+        <label htmlFor="ProfileImg">profile img</label>
+        <input type="file" id="ProfileImg" name="ProfileImg" onChange={handleFileChange} />
+        <button type="submit">upload</button>
       </form>
     </div>
   );
