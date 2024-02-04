@@ -7,9 +7,13 @@ body {
   }
 
 .home-container {
+    display: flex;
     text-align: center;
     padding: 20px;
     flex: 1;
+    flex-direction: column;
+    align-items: center;
+    
   }
   
   .hero-content {
@@ -60,7 +64,8 @@ body {
   .contact-us {
     margin-top: 40px;
     border: #007BFF solid;
-    width: 80vw;
+    width: 60vw;
+    height: 20vh;
   }
   
   .contact-us h2 {
