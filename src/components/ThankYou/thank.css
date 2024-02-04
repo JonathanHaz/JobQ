@@ -49,3 +49,6 @@
   color: rgb(129, 9, 9);
   cursor: pointer;
 }
+.cardThankYou a {
+  background-color: #1d2d5a;
+}
