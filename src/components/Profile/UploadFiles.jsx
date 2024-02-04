@@ -57,9 +57,9 @@ export default function UploadFiles() {
   return (
     <div>
       <form action="" onSubmit={handleFile} encType="multipart/form-data">
-        <label htmlFor="PDF">Put The PDF file</label>
+        <label htmlFor="PDF">Import PDF File</label>
         <input type="file" id="PDF" name="PDF" onChange={handleFileChange} />
-        <button type="submit">send</button>
+        <button type="submit">Send</button>
       </form>
     </div>
   );
