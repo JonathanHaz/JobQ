@@ -7,7 +7,6 @@ import { userContext } from '../../context/Global';
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  // Destructure `user` and `username` from the context
   const { handleSignOut, user, username } = useContext(userContext);
 
   const toggleSidebar = () => {
@@ -21,21 +20,19 @@ const Navbar = () => {
       {/* Sidebar */}
       <nav className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
         <ul className="side-list">
-          {user ? (
-            <>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/favorites">Favorites</Link></li>
-              <li><Link to="/search">Search</Link></li>
-              <li><Link to="/about">About Us</Link></li>
-              <li><Link to="/hr">HR</Link></li>
-              <li><Link to="/all-profiles">All Profiles</Link></li>
-            </>
-          ) : (
-            <>
-              <li><Link to="/">Auth</Link></li>
-              <li><Link to="/home">Home</Link></li>
-            </>
-          )}
+          {user?
+          <>      
+          <li><Link to="/favorites">Favorites</Link></li>
+          <li><Link to="/search">Search</Link></li>
+          <li><Link to="/hr">HR</Link></li>
+          <li><Link to="/profil">Profil</Link></li> 
+          </>
+          :
+          <>
+          <li><Link to="/">Auth</Link></li>
+          <li><Link to="/home">Home</Link></li>
+          </>
+          }
         </ul>
       </nav>
 

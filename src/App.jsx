@@ -2,11 +2,12 @@ import Home from "./pages/Home/Home";
 import Navbar from "./components/Navigation/Navbar";
 import Auth from './pages/Auth/Auth'
 import JobFinder from "./pages/JobFinder/JobFinder";
-
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { useContext } from "react";
 import { userContext } from "./context/Global";
+import Profile from "./pages/Profile/Profile";
 import About from "./pages/About/About";
+
 
 function App() {
   const {user} = useContext(userContext)
@@ -24,6 +25,7 @@ function App() {
           <>
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<JobFinder />} />
+          <Route path="/profil" element={<Profile />} />
           <Route path="/about" element={<About />} />
           </>
           }
