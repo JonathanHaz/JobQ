@@ -106,8 +106,10 @@ text-decoration: none;
   border: none;
   width: 7vw;
   height: 5vh;
-  
+  transition: 1s all;
   background-color: #08c255;
+  font-size: 16px;
+  color: #fff;
 }
 
 .logoutBTN:hover{
@@ -115,16 +117,6 @@ text-decoration: none;
   text-decoration: none;
 }
 
-.logoutBTN a{
-  color: white;
-  text-decoration: none;
-  font-size: 16px;
-  
-}
-
-.logoutBTN a:hover{
-  text-decoration: none;  
-}
 
 .welcome{
   margin-top: 10px;

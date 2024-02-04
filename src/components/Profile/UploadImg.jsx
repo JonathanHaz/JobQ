@@ -54,9 +54,9 @@ export default function UploadImg() {
   return (
     <div>
       <form action="" onSubmit={handleFile}>
-        <label htmlFor="ProfileImg">profile img</label>
+        <label htmlFor="ProfileImg">Change profile image</label>
         <input type="file" id="ProfileImg" name="ProfileImg" onChange={handleFileChange} />
-        <button type="submit">upload</button>
+        <button type="submit">Upload</button>
       </form>
     </div>
   );

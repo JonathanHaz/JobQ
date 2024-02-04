@@ -110,7 +110,8 @@ export default function Global({ children }) {
       };
 
       const fetchData = async (userState) => {
-        setUserData(getUserData(userState))
+        const Dataa = await getUserData(userState);
+        setUserData(Dataa)
         console.log(userData);
       };
       const shared = {
