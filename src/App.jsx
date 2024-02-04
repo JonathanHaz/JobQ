@@ -2,7 +2,12 @@ import Home from "./pages/Home/Home";
 function App() {
   return (
     <>
-    <Home/>
+    <BrowserRouter>
+   <Navbar/>
+   <Routes>
+    <Route path='/' element={<Home/>}/>
+   </Routes>
+   </BrowserRouter>
     </>
   );
 }
