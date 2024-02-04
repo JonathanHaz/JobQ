@@ -30,27 +30,25 @@ export default function UploadFiles() {
   };
   console.log(user);
   const uploadToUser = async (data) => {
-    const q = query(collection(db, 'resume'), where('idUser', '==', user.uid));
+    const q = query(collection(db, 'users'), where('idUser', '==', user.uid));
+    try {
       const querySnapshot = await getDocs(q);
-      const dataFromFirestore = querySnapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      console.log(dataFromFirestore);
-    // try {
-    //     const docRef = doc(db, 'users', user.uid);
-    //     console.log(docRef);
-    //   const q = query(collection(db, 'resume'), where('idUser', '==', user.uid));
-    //   await updateDoc(q, { PDF: data });
-    //   console.log("Document successfully updated!");
-    // } catch (error) {
-    //   console.error("Error updating document: ", error);
-    // }
+      if (querySnapshot.docs.length > 0) {
+        const documentId = querySnapshot.docs[0].id;
+        const documentRef = doc(collection(db, 'users'), documentId);
+        await updateDoc(documentRef, {PDF: data});
+      } else {
+        console.log("No matching documents found.");
+      }
+    } catch (error) {
+      console.error("Error getting documents: ", error);
+    }
   };
+  
+
   return (
     <div>
       <input type="file" name="PDF" onChange={handleFile} />
-      <img src={filePDF} alt="" />
     </div>
   );
 }
