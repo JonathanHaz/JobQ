@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import React, { useState,useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa'; // Import the menu icon
 import './Navbar.css';
