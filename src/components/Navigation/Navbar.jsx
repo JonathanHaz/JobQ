@@ -22,10 +22,12 @@ const Navbar = () => {
         <ul className="side-list">
           {user?
           <>      
-          <li><Link to="/favorites">Favorites</Link></li>
-          <li><Link to="/search">Search</Link></li>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/profile">Profile</Link></li> 
+          <li><Link to="/search">Search Jobs</Link></li>
+          <li><Link to="/about">About Us</Link></li>
           <li><Link to="/hr">HR</Link></li>
-          <li><Link to="/profil">Profil</Link></li> 
+          <li><Link to="/favorites">Favorites</Link></li>
           </>
           :
           <>
@@ -41,8 +43,8 @@ const Navbar = () => {
         <ul className="nav-list">
           {user ? (
             <>
-              <h3>Welcome back, {username}</h3>
-              <button onClick={handleSignOut} className='logoutBTN'>Log Out</button>
+              <h3 className='welcome'>Welcome back, {username}</h3>
+              <button onClick={handleSignOut} className='logoutBTN'><Link to='/home'>Log Out</Link></button>
             </>
           ) : (
             <button className='loginBTN'><Link to='/auth'>Sign In</Link></button>
