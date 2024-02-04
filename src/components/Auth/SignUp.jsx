@@ -29,6 +29,10 @@ export default function SignUp() {
         <input type="text" placeholder='Email' name='Email'  onChange={handleEmailChange}/>
         <input type="password" name="password" onInput={handlePasswordTwoCheck} onChange={handlePasswordChange} />
         <input type="password" name="password1" onInput={handlePasswordCheck} />
+        <input type="radio" id="jobSeeker" name="userType" value="jobSeeker"/>
+         <label for="jobSeeker">job seeker</label>
+         <input type="radio" id="HR" name="userType" value="HR"/>
+        <label for="HR">HR</label>
         <button>Sign-Up</button>
     </form>
   )
