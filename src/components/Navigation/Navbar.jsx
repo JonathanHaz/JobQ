@@ -1,6 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React, { useContext, useState } from 'react';
 =======
+=======
+import React, { useContext, useState } from 'react';
+>>>>>>> 6986fadd62764ffda15a2b4d131bef1ed40e8e24
 import React, { useState,useContext } from 'react';
 >>>>>>> 8aad1465d3901424feff6d6f780e3fec9b0a0510
 import { Link } from 'react-router-dom';
@@ -24,6 +28,8 @@ const Navbar = () => {
 
       <nav className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
         <ul className="side-list">
+          {user?
+          <>  
           <li><Link to="/">Home</Link></li>
           <li><Link to="/about">About</Link></li>
           <li><Link to="/profile">Profile</Link></li>
@@ -33,10 +39,16 @@ const Navbar = () => {
       <nav className="main-navbar">
         <ul className="nav-list">
           <li><Link to="/favorites">Favorites</Link></li>
-          <li><Link to="/auth">Auth</Link></li>
           <li><Link to="/search">Search</Link></li>
           <li><Link to="/hr">HR</Link></li>
-          <li><Link to="/all-profiles">All Profiles</Link></li>
+          <li><Link to="/all-profiles">All Profiles</Link></li> 
+          </>
+          :
+          <>
+          <li><Link to="/">Auth</Link></li>
+          <li><Link to="/home">Home</Link></li>
+          </>
+          }
         </ul>
       </nav>
 
