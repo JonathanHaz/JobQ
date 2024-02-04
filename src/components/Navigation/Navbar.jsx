@@ -25,6 +25,7 @@ const Navbar = () => {
           <li><Link to="/">Home</Link></li>
           <li><Link to="/favorites">Favorites</Link></li>
           <li><Link to="/search">Search</Link></li>
+          <li><Link to="/about">About Us</Link></li>
           <li><Link to="/hr">HR</Link></li>
           <li><Link to="/all-profiles">All Profiles</Link></li> 
           </>
