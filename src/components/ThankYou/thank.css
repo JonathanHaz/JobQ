@@ -1,0 +1,54 @@
+.picThank {
+  width: 10vw;
+}
+.containerThanks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 83vh;
+  width: 100%;
+  justify-content: center;
+}
+.cardThankYou {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  width: 70vw;
+  flex-direction: column;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.phoneNumber {
+  background-color: #1d2d5a;
+  padding: 1rem;
+  color: aliceblue;
+  cursor: pointer;
+}
+.listIcons {
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+  margin-right: 3vw;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+}
+.listIcons li {
+  font-size: 3rem;
+  cursor: pointer;
+}
+.exit {
+  display: flex;
+  font-weight: bold;
+  font-size: 1.5rem;
+  width: 100%;
+  margin-left: 1rem;
+}
+.exit:hover {
+  color: rgb(129, 9, 9);
+  cursor: pointer;
+}
+.cardThankYou a {
+  background-color: #1d2d5a;
+}
