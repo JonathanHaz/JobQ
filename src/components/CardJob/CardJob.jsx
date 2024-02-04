@@ -3,7 +3,8 @@ import parse from "html-react-parser";
 import { TbSend } from "react-icons/tb";
 import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
 
-import { GoHeartFill } from "react-icons/go";
+import Heart from "../Heart";
+import { Link } from "react-router-dom";
 
 export default function CardJob({ job }) {
   const [showLess, setShowLess] = useState(false);
@@ -18,17 +19,12 @@ export default function CardJob({ job }) {
     setDescription(parse(job.contents.substring(0, 200)));
     setShowLess(false);
   };
+
   return (
     <div className="fullCard">
       <div className="bluePas"></div>
       <h3 className="containNameAndHeart">
-        {job.categories[0]?.name}{" "}
-        <GoHeartFill
-          onClick={() => {
-            hanleHeartClick(job);
-          }}
-          className="clickHeart"
-        />
+        {job.categories[0]?.name} <Heart className="clickHeart" job={job} />
       </h3>
       <p>
         <span>{job.locations[0]?.name}</span>
@@ -36,9 +32,10 @@ export default function CardJob({ job }) {
       <p>{description}</p>
 
       <div className="containerButton">
-        <button>
+        <Link to={"/thankYou"}>
+          {" "}
           Send Cv <TbSend />
-        </button>
+        </Link>
       </div>
       {!showLess ? (
         <button onClick={handleClick} className="buttonShowMore">
