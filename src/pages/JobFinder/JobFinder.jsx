@@ -17,6 +17,16 @@ export default function JobFinder() {
     console.log(data);
     setJobs(data.results);
   };
+  const fetchFirstTime = async () => {
+    const res = await axios.get(
+      `https://www.themuse.com/api/public/jobs?location=israel&page=2 `
+    );
+    const data = await res.data;
+
+    console.log(data);
+    setJobs(data.results);
+  };
+
   const handleChange = (e) => {
     steSelected(e.target.value);
   };
@@ -24,6 +34,9 @@ export default function JobFinder() {
     e.preventDefault();
     fetchJobs(selected);
   };
+  useEffect(() => {
+    fetchFirstTime();
+  }, []);
 
   const categories = [
     "User",
@@ -106,7 +119,7 @@ export default function JobFinder() {
           })}
         </datalist>
       </form>
-      <div>
+      <div className="containerCards">
         {jobs.map((job, i) => {
           return <CardJob key={i} job={job} />;
         })}

@@ -1,0 +1,57 @@
+.containerCards {
+  display: flex;
+  gap: 5rem;
+  flex-wrap: wrap;
+  font-family: "Josefin Sans", sans-serif;
+  justify-content: space-around;
+}
+.fullCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 1rem;
+  width: 60vw;
+  min-height: 50vh;
+  max-height: 100%;
+  margin-left: 10rem;
+
+  align-items: center;
+}
+.fullCard h1 {
+  margin: 0;
+}
+.fullCard p {
+  margin: 0;
+}
+.bluePas {
+  background-color: #1d2d5a;
+  height: 2vh;
+  width: 100%;
+}
+.containNameAndHeart {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.containerButton {
+  display: flex;
+  width: 100%;
+
+  justify-content: end;
+}
+.containerButton {
+  margin-right: 5rem;
+  display: flex;
+  align-items: center;
+}
+.fullCard h3 {
+  font-size: 2rem;
+}
+.buttonShowMore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
