@@ -4,16 +4,27 @@ import Auth from './pages/Auth/Auth'
 import JobFinder from "./pages/JobFinder/JobFinder";
 
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { useContext } from "react";
+import { userContext } from "./context/Global";
 
 function App() {
+  const {user} = useContext(userContext)
   return (
     <>
       <BrowserRouter>
         <Navbar />
         <Routes>
+          {!user?
+          <>
+        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Auth />} />
+         </>
+          :
+          <>
           <Route path="/" element={<Home />} />
-          <Route path="/auth" element={<Auth />} />
           <Route path="/search" element={<JobFinder />} />
+          </>
+          }
         </Routes>
       </BrowserRouter>
     </>
