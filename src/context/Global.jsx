@@ -60,8 +60,6 @@ export default function Global({ children }) {
             setUser(userState);
           } else {
             setUser(null);
-            setResumeForms([]);
-            setadminIsIn(false)
           }
         });
         return () => unsubscribe();
