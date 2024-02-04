@@ -11,7 +11,7 @@ import ThankYou from "./components/ThankYou/ThankYou";
 import HR from "./pages/HR/HR";
 
 function App() {
-  const { user } = useContext(userContext);
+  const {user ,isHr} = useContext(userContext)
   return (
     <>
       <BrowserRouter>
@@ -28,6 +28,7 @@ function App() {
           <Route path="/search" element={<JobFinder />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/about" element={<About />} />
+          {isHr?<Route path="/hr" element={<HR />} />:null }
           <Route path="/hr" element={<HR />} />
            <Route path="/thankYou" element={<ThankYou />} />
           </>

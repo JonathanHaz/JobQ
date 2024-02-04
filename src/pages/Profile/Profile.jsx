@@ -7,7 +7,6 @@ import { userContext } from '../../context/Global'
 export default function Profile() {
   const { userData, username } = useContext(userContext)
 console.log(userData.profileImg);
-  // Access the ProfileImg from userData
   const profileImg = userData ? userData.ProfileImg : '';
   const profilePdf = userData ? userData.PDF : '';
 

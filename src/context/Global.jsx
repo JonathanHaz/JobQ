@@ -19,8 +19,9 @@ export default function Global({ children }) {
     const [isHr, setIsHr] = useState(false)
     const docRef = collection(db, "users");
   
-    const HrChecker = () =>{
-      if(userStatus == "HR"){
+    const HrChecker = (Data) =>{
+      console.log(Data)
+      if(Data.userStatus == "HR"){
         setIsHr(true)
       }else{setIsHr(false)}
       
@@ -86,7 +87,7 @@ export default function Global({ children }) {
             });
             fetchData(userState);
             setUser({ ...userState, ...additionalUserData });
-            HrChecker()
+       
           } else {
           
             setUser(null);
@@ -105,6 +106,7 @@ export default function Global({ children }) {
             const documentSnapshot = await getDoc(documentRef);
             if (documentSnapshot.exists()) {
               const documentData = documentSnapshot.data();
+              HrChecker(documentData)
               console.log("Document data:", documentData);
               return documentData;
             } else {
@@ -122,6 +124,7 @@ export default function Global({ children }) {
         const Dataa = await getUserData(userState);
         setUserData(Dataa)
         console.log(userData);
+       
       };
       const shared = {
         handleEmailChange,
@@ -129,7 +132,7 @@ export default function Global({ children }) {
         handleLogin,
         handleSignUp,
         setUser,
-        HrChecker,
+        isHr,
         user,
         userData,
         handleSignOut,

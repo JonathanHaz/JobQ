@@ -10,6 +10,7 @@ export default function UploadImg() {
   const Cloud_name = "dzdsii4hw";
   const [fileImg, setfileImg] = useState();
 
+
   const handleFileChange = (e) => {
     setfileImg(e.target.files[0]);
   };
