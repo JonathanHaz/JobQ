@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 export default function JobFinder() {
   const [jobs, setJobs] = useState([]);
   const [selected, steSelected] = useState("");
+  const [page, setPage] = useState(1);
 
   const fetchJobs = async (category) => {
     const res = await axios.get(
@@ -32,7 +33,16 @@ export default function JobFinder() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetchJobs(selected);
+    fetchJobs(selected, page);
+  };
+  const handleClickMoreFetchJobs = async () => {
+    setPage(page + 1);
+    const res = await axios.get(
+      `https://www.themuse.com/api/public/jobs?category=${selected}&page=${page}`
+    );
+    const data = await res.data;
+
+    setJobs([...jobs, ...data.results]);
   };
   useEffect(() => {
     fetchFirstTime();
@@ -119,10 +129,21 @@ export default function JobFinder() {
           })}
         </datalist>
       </form>
-      <div className="containerCards">
-        {jobs.map((job, i) => {
-          return <CardJob key={i} job={job} />;
-        })}
+      {jobs.length > 0 ? (
+        <>
+          <div className="containerCards">
+            {jobs.map((job, i) => {
+              return <CardJob key={i} job={job} />;
+            })}
+          </div>
+        </>
+      ) : (
+        <h1>has not find job in this category</h1>
+      )}
+      <div className="buttonShowMore">
+        <button onClick={handleClickMoreFetchJobs} className="btnMoreCardFecth">
+          Click for more
+        </button>
       </div>
     </div>
   );
