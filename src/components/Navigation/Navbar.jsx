@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
-import React, { useState,useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { FaBars } from 'react-icons/fa'; // Import the menu icon
+import { FaBars } from 'react-icons/fa';
 import './Navbar.css';
 import { userContext } from '../../context/Global'
 
@@ -17,17 +16,12 @@ const Navbar = () => {
   return (
 
     <div>
-      {/* Sidebar toggle icon */}
       <FaBars className="menu-icon" onClick={toggleSidebar} />
 
-      {/* Sidebar */}
       <nav className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
         <ul className="side-list">
           {user?
-          <>  
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/profile">Profile</Link></li>
+          <>      
           <li><Link to="/favorites">Favorites</Link></li>
           <li><Link to="/search">Search</Link></li>
           <li><Link to="/hr">HR</Link></li>
