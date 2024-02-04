@@ -1,6 +1,5 @@
 .signForm{
     max-width: 400px;
-    min-height: 400px;
     margin: 50px auto;
     padding: 20px;
     border: 1px solid #ccc;
@@ -8,7 +7,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-input {
+.signForm > input {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -18,14 +17,14 @@ input {
 }
 
 /* Style radio container */
-.radio-container {
+.signForm > .radio-container {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
 }
 
 /* Style radio input */
-input[type="radio"] {
+.signForm > input[type="radio"] {
     display: none;
 }
 
@@ -46,14 +45,14 @@ input[type="radio"] {
     cursor: pointer;
 }
 
-input[type="radio"]:checked + .radio-label .radio-btn {
+.signForm > input[type="radio"]:checked + .radio-label .radio-btn {
     background-color: #4caf50;
     border-color: #4caf50;
     color: #fff;
 }
 
 
-button {
+.signForm > button {
     background-color: #4caf50;
     color: #fff;
     padding: 10px;
@@ -62,12 +61,7 @@ button {
     cursor: pointer;
 }
 
-button a{
-    text-decoration: none;
-    color: white;
-}
-
-p a {
+.signForm >p a {
     color: #007bff;
     text-decoration: none;
     cursor: pointer;

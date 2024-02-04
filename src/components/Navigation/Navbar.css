@@ -5,7 +5,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #333;
+  background-color: #3333338e;
+  backdrop-filter: blur(8px);
   overflow-x: hidden;
   transition: 0.3s;
   z-index: 1;
@@ -50,6 +51,7 @@
   list-style-type: none;
   padding: 0;
   display: flex;
+  gap: 10px;
   justify-content: flex-end;
 }
 
@@ -77,4 +79,49 @@
   top: 10px;
   left: 10px;
   z-index: 2;
+}
+
+.loginBTN{
+  border: none;
+  width: 7vw;
+  background-color: #08c255;
+}
+
+.loginBTN:hover{
+  background-color: #07aa4b;
+text-decoration: none;
+}
+
+.loginBTN a{
+  text-decoration: none;
+  color: white;
+  
+}
+
+.loginBTN a:hover{
+  text-decoration: none;  
+}
+
+.logoutBTN{
+  border: none;
+  width: 7vw;
+  height: 5vh;
+  font-size: 18px;
+
+  background-color: #08c255;
+}
+
+.logoutBTN:hover{
+  background-color: #07aa4b;
+text-decoration: none;
+}
+
+.logoutBTN a{
+  text-decoration: none;
+  color: white;
+  
+}
+
+.logoutBTN a:hover{
+  text-decoration: none;  
 }
