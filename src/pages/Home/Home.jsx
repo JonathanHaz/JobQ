@@ -1,5 +1,5 @@
 import React from 'react';
-import { useContext,useEffect,useState } from 'react';
+import { useContext,useState } from 'react';
 import { FaGithub, FaLinkedin, FaFacebook,FaRobot } from 'react-icons/fa';
 import { userContext } from '../../context/Global'
 import './Home.css'; // Create a CSS file for styling
