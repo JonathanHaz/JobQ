@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import gptLogo from "../../assets/Images/chatgpt.svg";
 import "./chat.css";
 import addBtn from "../../assets/Images/add-30.png";
@@ -11,8 +11,16 @@ import rocket from "../../assets/Images/rocket.svg";
 import sendBtn from "../../assets/Images/send.svg";
 import userIcon from "../../assets/Images/user-icon.png";
 import gptImgLogo from "../../assets/Images/chatgptLogo.svg";
+// import { sendMsgToOpenAI } from "../../openAi";
+// import { Configuration, OpenApi } from "openai";
+import OpenAI from "openai";
 
 export default function ChatGPT() {
+  const [input, setInput] = useState("");
+  const openai = new OpenAI();
+
+  const handleSend = async () => {};
+
   return (
     <div className="App">
       <div className="sidebarChat">
@@ -52,8 +60,8 @@ export default function ChatGPT() {
       </div>
       <div className="mainChat">
         <div className="chats">
-          <div className="chat">
-            <img src={userIcon} alt="" />
+          <div className="chat ">
+            <img className="chatImg" src={userIcon} alt="" />
             <p className="txt">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque
               fugiat, vero error iste ullam eveniet officiis nostrum odit sint
@@ -69,8 +77,8 @@ export default function ChatGPT() {
               nobis. Porro voluptas, unde cum a repellendus minus expedita ab?
             </p>
           </div>
-          <div className="chat">
-            <img src={gptImgLogo} alt="" />
+          <div className="chat bot">
+            <img className="chatImg" src={gptImgLogo} alt="" />
             <p className="txt">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque
               fugiat, vero error iste ullam eveniet officiis nostrum odit sint
@@ -89,9 +97,16 @@ export default function ChatGPT() {
         </div>
         <div className="chatFotter">
           <div className="inp">
-            <input type="text" placeholder="Send a message..." />
+            <input
+              type="text"
+              placeholder="Send a message..."
+              value={input}
+              onChange={(e) => {
+                setInput(e.target.value);
+              }}
+            />
             <button className="send">
-              <img src={sendBtn} alt="send" />
+              <img src={sendBtn} alt="send" onClick={handleSend} />
             </button>
           </div>
         </div>
