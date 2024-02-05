@@ -109,6 +109,17 @@
   align-items: flex-start;
   text-align: justify;
 }
+.chatImg {
+  object-fit: cover;
+  width: 3.5rem;
+  margin-right: 2rem;
+  border-radius: 0.5rem;
+}
+.bot {
+  background: #6d382dee;
+  width: fit-content;
+  border-radius: 0.5rem;
+}
 .chatFotter {
   margin-top: auto;
   width: 100%;
@@ -123,7 +134,7 @@
   display: flex;
   align-items: center;
   border-radius: 0.5rem;
-  width: 50rem;
+  width: 53rem;
 }
 .inp > input,
 .send {
@@ -139,7 +150,7 @@
 .inp input {
   display: flex;
   justify-content: space-around;
-  width: 80vw;
+  width: 100%;
 }
 .chatFotter > p {
   margin: 2rem 0;
