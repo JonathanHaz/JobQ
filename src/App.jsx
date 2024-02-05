@@ -10,6 +10,7 @@ import Profile from "./pages/Profile/Profile";
 import About from "./pages/About/About";
 import ThankYou from "./components/ThankYou/ThankYou";
 import HR from "./pages/HR/HR";
+import ChatGPT from "./pages/chatGPT/ChatGPT";
 
 function App() {
   const { user, isHr } = useContext(userContext);
@@ -33,6 +34,7 @@ function App() {
               <Route path="/hr" element={<HR />} />
               <Route path="/thankYou" element={<ThankYou />} />
               <Route path="/favorites" element={<Favorites />} />
+              <Route path="/chatGPT" element={<ChatGPT />} />
             </>
           )}
         </Routes>
