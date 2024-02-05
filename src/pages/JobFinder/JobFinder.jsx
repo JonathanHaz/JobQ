@@ -174,6 +174,9 @@ export default function JobFinder() {
           Click for more
         </button>
       </div>
+      <footer className="footer">
+        <div>© {new Date().getFullYear()} JobQuest. All rights reserved.</div>
+      </footer>
     </div>
   );
 }

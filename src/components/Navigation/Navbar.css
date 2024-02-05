@@ -43,6 +43,7 @@
 
 .side-list a:hover {
   background-color: #B19470;
+  border-radius: 20px;
 }
 
 /* Main Navbar Styles */
@@ -98,6 +99,7 @@
   font-size: 16px;
   color: #F8FAE5;
   margin-top: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .loginBTN:hover{
@@ -120,12 +122,17 @@ text-decoration: none;
   border: none;
   width: 7vw;
   height: 5vh;
-  transition: 1s all;
+  transition: .2s all;
   background-color: #76453B;
   font-size: 16px;
   color: #fff;
   cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin-top: 10px;
+}
+
+.logoutBTN:hover{
+  background-color: #4e2e27;
 
 }
 
