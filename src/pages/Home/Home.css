@@ -95,6 +95,13 @@ body {
     text-decoration: none;
     color: #76453B;
     font-size: 30px;
+    transition: .2s all;
+    animation: slideRight 5s ease-in-out infinite;
+  }
+
+  .contact-links a:hover{
+    transform: scale(1.2);
+    color: #56322b;
   }
   
   .contact-us a {
@@ -130,7 +137,9 @@ body {
     margin-bottom: 10px;
     object-fit: cover;
     border-radius: 50%;
+    transition: 1s all;
   }
+
   
   .feature p {
     color: #76453B;
@@ -162,6 +171,16 @@ body {
     z-index: 9988;
   }
 
+
+  @keyframes slideRight {
+    0%,100% {
+      transform: translateX(-30%);
+    }
+    50% {
+      transform: translateX(30%);
+    }
+    
+  }
 
   
   

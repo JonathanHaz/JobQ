@@ -21,7 +21,6 @@ export default function CardJob({ job }) {
 
   return (
     <div className="fullCard">
-      <div className="bluePas"></div>
       <h3 className="containNameAndHeart">
         {job.categories[0]?.name} <Heart className="clickHeart" job={job} />
       </h3>
