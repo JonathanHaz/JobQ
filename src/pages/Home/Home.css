@@ -151,6 +151,7 @@ body {
     border: none;
     border-radius: 50%  ;
     color: #76453B;
+    cursor: pointer;
     background-color: #43766c;
   }
   

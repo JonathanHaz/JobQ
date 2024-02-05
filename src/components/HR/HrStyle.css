@@ -58,7 +58,9 @@
     border: none;
     border-radius: 5px;
   }
-  
-  .hrButton:hover {
-    background-color: #483430;
+  .buttons{
+    display: flex;
+    flex-direction: row;
+    
+    
   }
