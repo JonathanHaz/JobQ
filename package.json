@@ -12,8 +12,14 @@
   "dependencies": {
     "@cloudinary/react": "^1.12.0",
     "@cloudinary/url-gen": "^1.16.0",
+<<<<<<< HEAD
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.15.7",
+=======
     "@splinetool/react-spline": "^2.2.6",
     "@splinetool/runtime": "^1.0.47",
+>>>>>>> 40398f34c91c8d26067d2c9be7e8740c51a199b6
     "@twicpics/components": "^0.27.1",
     "axios": "^1.6.7",
     "dom": "^0.0.3",
