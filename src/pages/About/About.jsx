@@ -1,13 +1,19 @@
 import React, { useEffect, useRef } from 'react';
 import './About.css'; // Create a CSS file for styling
 import { gsap } from 'gsap';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default function About() {
   const sections = useRef([]);
 
   useEffect(() => {
+    AOS.init();
+  }, [])
+  
+  useEffect(() => {
     sections.current.forEach((section) => {
-      const tl = gsap.timeline({ defaults: { duration: 2 } });
+      const tl = gsap.timeline({ defaults: { duration: 1 } });
       const sectionP = section.querySelector('p');
       const sectionH1 = section.querySelector('h1');
       const sectionFree = section.querySelector('.free'); // Select the "Feel free" element
@@ -42,7 +48,7 @@ export default function About() {
 
   return (
     <div className="about-us-container">
-      <div className="about-us-content">
+      <div className="about-us-content" data-aos='fade-up'>
         <h1>About JobQuest</h1>
         <p>
           JobQuest is a revolutionary platform dedicated to helping individuals like you find their dream jobs and navigate the competitive job market effectively.
@@ -56,6 +62,9 @@ export default function About() {
         <p>
           Whether you are a recent graduate looking for your first job or a seasoned professional seeking new opportunities, JobQuest is here to assist you on your career journey.
         </p>
+      </div>
+      <div className='meet'>
+        <h1>Meet Our Team !</h1>
       </div>
       <div className="sections">
         <div className="section sunny" ref={(el) => (sections.current[0] = el)}>

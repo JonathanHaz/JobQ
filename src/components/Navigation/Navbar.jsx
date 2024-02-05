@@ -27,7 +27,6 @@ const Navbar = () => {
           <li><Link to="/profile">Profile</Link></li> 
           <li><Link to="/search">Search Jobs</Link></li>
           <li><Link to="/about">About Us</Link></li>
-          <li><Link to="/chatGPT">ChatGPT</Link></li>
           {isHr?<li><Link to="/hr">HR</Link></li>:null}
           <li><Link to="/favorites">Favorites</Link></li>
           </>

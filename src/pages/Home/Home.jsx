@@ -8,6 +8,9 @@ import expert from '../../assets/Images/Experts.jpg'
 import growth from '../../assets/Images/Growth.jpg'
 import { Link } from 'react-router-dom';
 import ChatBot from 'react-simple-chatbot';
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default function Home() {
   const { user } = useContext(userContext)
@@ -16,10 +19,14 @@ export default function Home() {
   const toggleChatbot = () => {
     setChatbotOpen(!chatbotOpen);
   };
+
+  useEffect(() => {
+    AOS.init();
+  }, [])
   
   return (
-    <div className="home-container">
-      <div className="hero-content">
+    <div className="home-container" data-aos='zoom-in'>
+      <div className="hero-content" >
         <h1>Empower Your Career Quest with JobQuest</h1>
         <p>Welcome to JobQuest, your premier destination for navigating the job market with ease and precision...</p>
         <button className='startedBTN'>
@@ -30,16 +37,16 @@ export default function Home() {
         <h2>What makes us different?</h2>
         <div className="different-features">
           <div className="feature">
-            <img src={ai} alt="Feature 1" />
-            <p>Advanced AI-powered job matching</p>
+            <img src={ai} alt="Feature 1" data-aos='zoom-in'  data-aos-delay="500" />
+            <p data-aos='zoom-in'  data-aos-delay="1000"  data-aos-offset="100">Advanced AI-powered job matching</p>
           </div>
           <div className="feature">
-            <img src={expert} alt="Feature 2" />
-            <p>Extensive network of industry experts</p>
+            <img src={expert} alt="Feature 2" data-aos='zoom-in'  data-aos-delay="1500" />
+            <p data-aos='zoom-in'  data-aos-delay="2000"  data-aos-offset="100">Extensive network of industry experts</p>
           </div>
           <div className="feature">
-            <img src={growth} alt="Feature 3" />
-            <p>Personalized career growth recommendations</p>
+            <img src={growth} alt="Feature 3" data-aos='zoom-in'  data-aos-delay="2500" />
+            <p data-aos='zoom-in' data-aos-delay="3000"  data-aos-offset="100" >Personalized career growth recommendations</p>
           </div>
         </div>
       </div>

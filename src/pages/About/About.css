@@ -11,20 +11,22 @@
   .about-us-content {
     display: flex;
     flex-direction: column;
-    gap: 8rem;
-    width: 80vw;
-    height: 100vh;
-    margin: 0 auto;
+    gap: 1rem;
+    width: 70vw;
+    height: 80vh;
   }
   
   .about-us-content h1 {
     font-size: 2.5rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-bottom: 20px;
   }
   
   .about-us-content  p {
     font-size: 1.2rem;
     margin-bottom: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
   }
   
   .footer {
@@ -150,7 +152,11 @@
   .free{
   margin-top: auto;
   }
-  
-  .spline{
-   
+
+  .meet{
+    margin-bottom: 10rem;
+    font-size: 32px;
+    text-decoration: underline;
   }
+  
+  

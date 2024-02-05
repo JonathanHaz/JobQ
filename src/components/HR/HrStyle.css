@@ -3,7 +3,7 @@
     height: 75vh; 
     margin: 0 auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #B19470;
+    background-color: #43766c99;
     opacity: 0.8;
     border-radius: 10px;
     display: flex;
@@ -61,6 +61,8 @@
   .buttons{
     display: flex;
     flex-direction: row;
-    
-    
+  }
+
+  .white-input {
+    background-color: white;
   }

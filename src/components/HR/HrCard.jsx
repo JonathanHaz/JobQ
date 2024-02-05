@@ -104,14 +104,17 @@ export default function HrCard() {
           name="CompanyName"
           label="Company Name"
           multiline
-          onChange={changeContactInfoHandler}/>      
+          onChange={changeContactInfoHandler}
+          InputProps={{ className: 'white-input' }}
+          />      
         <TextField
           id="outlined-multiline-static about"
           name="about"
-          label="about"
+          label="About"
           multiline
           rows={4}
-          onChange={changeContactInfoHandler}/>
+          onChange={changeContactInfoHandler}
+          InputProps={{ className: 'white-input' }}/>
           <TextField
           id="outlined-select-currency"
           select
@@ -120,6 +123,7 @@ export default function HrCard() {
           defaultValue="Junior"
           helperText="Please select level"
           onChange={changeContactInfoHandler}
+          InputProps={{ className: 'white-input' }}
         >
           {topJobLevels.map((option) => (
             <MenuItem key={option.value} value={option.value}>
@@ -133,21 +137,20 @@ export default function HrCard() {
           name="phoneNumber"
           label="Company Phone"
           multiline
-          onChange={changeContactInfoHandler}/> 
+          onChange={changeContactInfoHandler}
+          InputProps={{ className: 'white-input' }}
+          /> 
           <TextField
           id="outlined-multiline-static Email"
           type="email"
           name="email"
           label="Company email"
           multiline
-          onChange={changeContactInfoHandler}/>
-          <TextField
-          id="outlined-multiline-static dateCompany"
-          type="date"
-          name="PublishDate"
-          label="publish date"
-          multiline
-          onChange={changeContactInfoHandler}/>             
+          onChange={changeContactInfoHandler}
+          InputProps={{ className: 'white-input' }}
+          />
+          <TextField id="outlined-basic"  type="date" variant="outlined" name="PublishDate" onChange={changeContactInfoHandler} InputProps={{ className: 'white-input' }}/>
+                 
             <button className="hrButton" type='button' onClick={nextStage}>Next</button>
            </Box></>
         ) : currentPage === 2 ? (
