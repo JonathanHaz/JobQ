@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, } from "react";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import "./Navbar.css";
@@ -8,23 +8,6 @@ import Logo from '../../assets/Images/Logo.png'
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { handleSignOut, user, username ,isHr} = useContext(userContext);
-  const [isSticky, setIsSticky] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsSticky(true);
-      } else {
-        setIsSticky(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -49,7 +32,6 @@ const Navbar = () => {
           </>
           :
           <>
-          <li><Link to="/">Auth</Link></li>
           <li><Link to="/home">Home</Link></li>
           </>
           }
@@ -58,7 +40,7 @@ const Navbar = () => {
       </nav>
 
       {/* Main Navbar */}
-      <div className={`navbar ${isSticky ? "sticky-navbar" : ""}`}>
+      <div className={`navbar`}>
       <nav className="main-navbar">
         <ul className="nav-list">
       <FaBars className="menu-icon" onClick={toggleSidebar} />

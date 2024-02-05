@@ -9,7 +9,11 @@
   }
   
   .about-us-content {
-    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 8rem;
+    width: 80vw;
+    height: 100vh;
     margin: 0 auto;
   }
   
@@ -30,7 +34,7 @@
     text-align: center;
   }
 
-
+/* 
   .card {
     position: relative;
     width: 300px;
@@ -98,5 +102,55 @@
     flex-direction: row;
     gap: 2rem;
     
+  } */
+
+  .sections {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    justify-content: space-around;
+    background-color: #B19470;
+    height: 300vh;
   }
   
+  .section {
+    width: 40vw;
+    height: 60vh;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 24px;
+    margin-left: 10px;
+    color: #F8FAE5;
+    gap: 5rem;
+    display: flex; /* Add this property */
+    flex-direction: column; /* Add this property */
+  }
+  
+  .section:nth-child(2) {
+    align-self: flex-end;
+    margin-right: 10px;
+  }
+  
+  .uriel{
+    background-image: linear-gradient(rgba(67, 118, 108, .5),rgb(67, 118, 108, .5)),url('../../assets/Images/uriel.png');
+    background-size: cover;
+  }
+  
+  .sunny{
+    background-image: linear-gradient(rgba(67, 118, 108, .5),rgb(67, 118, 108, .5)),url('../../assets/Images/sunny.jpg');
+    background-size: cover;
+  }
+
+  .jonathan{
+    background-image: linear-gradient(rgba(67, 118, 108, .5),rgb(67, 118, 108, .5)),url('../../assets/Images/jonathan.jpg');
+    background-size: cover;
+  }
+
+  .free{
+  margin-top: auto;
+  }
+  
+  .spline{
+   
+  }
