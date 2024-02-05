@@ -41,6 +41,12 @@ body {
     border: none;
     cursor: pointer;
     margin-top: 10px;
+    transition: .2s all;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+
+  .startedBTN:hover{
+    background-color: #4d2d27;
   }
 
   .startedBTN a{
@@ -74,7 +80,9 @@ body {
     height: 20vh;
     display: flex;
     flex-direction: column; 
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     gap: 30px;
+    
   }
   
   .contact-us h2 {
@@ -87,7 +95,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-bottom: 10px; /* Add margin to separate the links from the bottom */
+    margin-bottom: 10px; 
   }
 
 
@@ -95,13 +103,14 @@ body {
     text-decoration: none;
     color: #76453B;
     font-size: 30px;
-    transition: .2s all;
+    transition: all .2s;
     animation: slideRight 5s ease-in-out infinite;
+    
   }
 
   .contact-links a:hover{
-    transform: scale(1.2);
-    color: #56322b;
+    font-size: 32px;
+    color: #4d2d27;
   }
   
   .contact-us a {
@@ -128,7 +137,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    gap: 20px; /* Increase the gap between elements */
+    gap: 20px; 
   }
   
   .feature img {
@@ -138,14 +147,15 @@ body {
     object-fit: cover;
     border-radius: 50%;
     transition: 1s all;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   }
 
   
   .feature p {
     color: #76453B;
     font-size: 18px;
-    margin-top: 20px; /* Add margin-top to separate text from the top */
-    padding-left: 10px; /* Add padding to the left to increase the gap to the sides */
+    margin-top: 20px; 
+    padding-left: 10px; 
     padding-right: 10px; 
     font-weight: 900;
   }
@@ -161,7 +171,13 @@ body {
     border-radius: 50%  ;
     color: #76453B;
     cursor: pointer;
-    background-color: #43766c;
+    transition: .2s all;
+    background-color: #508c80;
+    
+  }
+
+  .botBTN:hover{
+    background-color: #39635a;
   }
   
   .Bot {
